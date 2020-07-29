@@ -1,0 +1,27 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="button" name="btnconfirm" 
+        value="Confirm dialogbox" onclick="Confirm();" /> <br/>
+        <a href="lesson1.html" onclick="return Confirm2();">Delete</a>
+        <script>
+           function Confirm2(){
+                return confirm("Are you sure want to delete this item");
+           } 
+
+           function Confirm(){
+               var response = confirm("Are you sure you want to process this page?");
+               if(response==true)
+               {
+                   alert("Let start this process");
+               }
+               else 
+               {
+                   alert("Let's stop this process");
+               }
+           }
+        </script>
+    </body>
+</html>

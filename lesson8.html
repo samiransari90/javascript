@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h2>Example of Cookies </h2>
+        <table width=50% align=center cellpadding="10" border=2>
+            <tr>
+                <td>
+                    <input type="text" id="txtname" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" id="txtvalue" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="Create/Change Cookie" id="btnset" onclick="SetCookie()" />
+                    <input type="button" value="Read Cookie" id="btnget" onclick="GetCookie()" />
+
+                </td>
+            </tr>
+        </table>
+        <script src="common.js"></script>	
+        <script src="cookies.js"></script>	
+        <script>
+            var name,value;
+            function SetCookie(){
+                console.log("set cookie called");
+                name =  getValue("txtname");
+                value = getValue("txtvalue");
+                console.log(name);
+                console.log(value);
+                setCookie(name,value,365);
+            }
+            function GetCookie(){
+                console.log("get cookie called");
+                value =  getCookie(getValue("txtname"));
+                setValue("txtvalue",value);
+            }
+        </script>
+    </body>
+</html>

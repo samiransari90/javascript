@@ -1,0 +1,87 @@
+<!doctype html>
+    <head>
+
+    </head>
+    <body>
+        <h2 align=center>Basic Math Calculator</h2>
+        <table width="50%" align="center" border=2 cellpadding=10>
+            <tr>
+                <td>
+                    <input type="text" id="txtnum1" placeholder="First number" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" id="txtnum2" placeholder="Second number" />
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                   <input type="radio" id="add" name="rdooperation" value="1" /> Addition
+                   <input type="radio" id="sub" name="rdooperation" value="2" /> Substraction
+                   <input type="radio" id="mul" name="rdooperation" value="3" /> Multiplication
+                   <input type="radio" id="div" name="rdooperation" value="4" /> Division
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" name="btncalculate" value="Calculate Result"
+                    onclick="calculate() " />
+                </td>
+            </tr>
+            <tr>
+                <td id="output"></td>
+            </tr>
+        </table>
+        <script type="text/javascript">
+           var num1,num2,operation,result; //global variable 
+           function calculate(){
+               var isValid = true;
+               if(isDigit(getValue("txtnum1")) == false)
+               {
+                   alert ("first value must be valid number");
+                   isValid = false;
+               }
+               if(isDigit(getValue("txtnum2")) == false){
+                  alert ("second value must be valid number");
+                  isValid = false;
+               }
+               if(isValid==true)
+               {
+               num1 = parseInt(getValue("txtnum1"));
+               num2 = parseInt(getValue("txtnum2"));
+               if(document.querySelector('input[name=rdooperation]:checked')==null){
+                   alert("please selected operation");
+               }
+               else 
+               {
+                   operation = document.querySelector('input[name=rdooperation]:checked').value;
+                   if(operation==1)
+                   {
+                        result = num1 + num2;
+                   }
+                   else if(operation==2)
+                   {
+                        result = num1 / num2;
+                   }
+                   else if(opration==3)
+                   {
+                        result = num1 * num2;
+                   }
+                   else if(operation==4)
+                   {
+                        result = num1 / num2;
+                   }
+                   alert(result);
+               }
+            }
+        } 
+           function getValue(id){
+               return document.getElementById(id).value;
+           }
+           function isDigit(value){ 
+               return /^\d+$/.test(value);
+            }
+        </script>
+    </body>
+</html>

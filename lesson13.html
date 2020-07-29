@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <input type="button" value="Print All Key Value Pair " onclick="PrintObject();" />
+        <p id="output">
+
+        </p>
+        <script>
+           function PrintObject(){
+               function Person(name,surname,gender,weight){
+                   this.name = name;
+                   this.surname = surname;
+                   this.gender = gender;
+                   this.weight = weight
+               }
+            var person = new Person("Krupa","Popat",false,75.25);
+            var data = "<br/> name = " + person['name'] + "<br/> surname " + person['surname'] +
+            "<br/> gender = " + person['gender'] + " weight = " + person['weight'];
+            document.getElementById("output").innerHTML = data;
+            person.name = "Ayushi";
+            person.surname = "Vora"; 
+            alert("Person name = " + person['name'] + " surname = " + person['surname']);
+        }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <input type="button" value="Print All Key Value Pair " onclick="PrintObject();" />
+        <p id="output">
+
+        </p>
+        <script>
+           function PrintObject(){
+               var course = {
+                   name:"Laravel",
+                   Trainer:"Ankit Patel",
+                   duration:90,
+                   isCertified:true, 
+               };
+               var data = "Name = " + course.name + "<br/> Trainer = " + course.Trainer + "<br/> duration = " + course.duration + "<br/> isCertified = " + course.isCertified;
+               document.getElementById("output").innerHTML = data;
+           }
+        </script>
+    </body>
+</html>

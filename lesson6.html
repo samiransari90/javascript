@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<title>Loop in Javascript - the easylearn academy</title>
+	</head>
+	<body>
+			<form method="post" action="loop.php">
+				<table width='50%' align=center border=2 cellpadding=5>
+					<tr>
+						<Td align=center>
+							<h3>HTML table generator</h3>
+						</Td>
+					</tr>
+					<tr>
+						<td>
+							<input type="number" id="txtrow" required placeholder="no of rows" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="number" id="txtcolumn" required placeholder="no of columns" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<select id="sltloop" required>
+								<option value="">Select Loop</option>
+								<option value="1">While loop</option>
+								<option value="2">for loop</option>
+								<option value="3">Do while loop</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+                            <input type="button" name="btnsubmit" value="Generate HTML table"
+                            onclick="GenerateTable()" />
+							<input type="reset" name="btnreset" value="Clear all" />
+						</td>
+                    </tr>
+                    <tr>
+                        <td id="outputtd"></td>
+                    </tr>
+				</table>
+            </form>
+        <script>
+            function Getvalue(control)
+            {
+                return document.getElementById(control).value;
+            }
+            function GenerateTable()
+            {
+                var row,column,loop;
+                row = parseInt(Getvalue("txtrow"));
+                column = parseInt(Getvalue("txtcolumn"))
+                loop =  Getvalue("sltloop")
+                console.log(row +  " " + column + " " + loop);
+                var output;
+                if(loop=="1")
+                {
+                    output= "<table border=1 align=center width='80%' cellpadding=5>";
+                    var i=1;
+                    while(i<row)
+                    {
+                        output += "<tr>";
+                        var j=1;
+                        while(j<=column)
+                        {
+                            output += "<td>Bhavnagar</td>";
+                            j++;
+                        }
+                        output += "</tr>";
+                        i++;
+                    }    
+                    output+= "</table>";
+                    document.getElementById("outputtd").innerHTML = output;
+                }
+                else if(loop==2) //for loop
+                {
+                    output= "<table border=1 align=center width='80%' cellpadding=5>";
+                    for(var i=1;i<=row;i++)
+                    {
+                        output += "<tr>";
+                        for(var j=1;j<=column;j++)
+                        {
+                            output += "<td>Gujarat</td>";
+                        }
+                        output += "</tr>";
+                    }
+                    output+= "</table>";
+                    document.getElementById("outputtd").innerHTML = output;
+
+                }
+                else if(loop==3) // do while loop 
+                {
+                    output= "<table border=1 align=center width='80%' cellpadding=5>";
+                    var i=1;
+                    do 
+                    {
+                        output += "<tr>";
+                        j=1;
+                        do 
+                        {
+                            output += "<td>India</td>";
+                            j++;
+                        }while(j<=column);
+                        output += "</tr>";
+                        i++;
+                    }while(i<=row);
+                    output+= "</table>";
+                    document.getElementById("outputtd").innerHTML = output;
+                }
+            }
+        </script>
+	</body>
+</html>
